@@ -107,9 +107,7 @@ function Card() {
         />
       </div>
       <div className="flex flex-row justify-center items-center mb-2">
-        <h2 className="font-semibold text-sm text-center mr-1">
-          Transactions
-        </h2>
+        <h2 className="font-semibold text-sm text-center mr-1">Transactions</h2>
         <div className="flex items-center justify-center bg-slate-400 rounded-full w-6 h-6">
           <p className="text-white text-xs leading-none">
             {filteredTransactions.length}
@@ -129,9 +127,12 @@ function Card() {
         ) : (
           <div className="flex flex-col items-center mt-3 w-96 text-center">
             <img src={sadEmoji} alt="sad-emoji" className="w-14 mr-1" />
-            <h2 className="text-xl text-gray-600 font-semibold mt-3 mb-1">No results</h2>
+            <h2 className="text-xl text-gray-600 font-semibold mt-3 mb-1">
+              No results
+            </h2>
             <p className="text-sm text-gray-600">
-                Sorry, there are no transactions matching your search, please try again
+              Sorry, there are no transactions matching your search, please try
+              again
             </p>
           </div>
         )}
