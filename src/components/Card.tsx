@@ -11,6 +11,7 @@ import businessIcon from "../assets/business-icon.png";
 import personalIcon from "../assets/personal-icon.png";
 import TransactionSearch from "./TransactionsSearch";
 import sadEmoji from "../assets/sad-emoji.png";
+import classNames from 'classnames';
 
 function Card() {
   const [cardsData, setCardsData] = useState<CardType[]>([]);
@@ -79,9 +80,18 @@ function Card() {
           <div
             key={card.id}
             onClick={() => handleCardSelection(card.id, card.description)}
-            className={`border rounded-md my-10 bg- p-8 text-sm cursor-pointer bg- ${
-              selectedCardId === card.id ? `bg-${selectedCardColor}` : ""
-            }`}
+            className={classNames(
+              'border',
+              'rounded-md',
+              'my-10',
+              'p-8',
+              'text-sm',
+              'cursor-pointer',
+              {
+                'bg-slate-200': selectedCardId === card.id && card.description === "Private Card",
+                'bg-blue-100': selectedCardId === card.id && card.description === "Business Card",
+              }
+            )}
           >
             <div className="flex flex-col items-center ">
               <img
