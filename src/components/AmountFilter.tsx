@@ -7,10 +7,18 @@ interface AmountFilterProps {
 }
 
 const AmountFilter: React.FC<AmountFilterProps> = ({ filterAmount, setFilterAmount }) => {
-
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setFilterAmount(value ? parseFloat(value) : 0)
+    if (value === "" || value === ".") {
+      setFilterAmount(0); 
+    } else {
+      const number = parseFloat(value);
+      if (!isNaN(number)) {
+        setFilterAmount(number);
+      }
+    }
+    
   }
 
   return (
